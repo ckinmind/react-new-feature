@@ -1,17 +1,11 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
+import {storiesOf} from '@storybook/react'
 
-export default {
-  title: 'React 16.3',
-}
 
-export const text = () => <Button onClick={action('clicked')}>Hello Button</Button>;
+import CreateRefExample from '../src/16.3/createRef'
+import CRMD from '../src/16.3/createRef.md'
 
-export const emoji = () => (
-<Button onClick={action('clicked')}>
-<span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-</span>
-</Button>
-);
+storiesOf('React 16.3', module)
+  .add('CreateRef', () => <CreateRefExample />, {info: {text: CRMD, inline: false, source: false, propTables: null}})
