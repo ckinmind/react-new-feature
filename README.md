@@ -1,2 +1,28 @@
-# react-new-feature
-关于react的新特性
+## React新特性
+- 16.0
+  - Error Boundaries
+  - ReactDOM.createPortal()
+- 16.3
+  - React.createRef()
+  - React.forwardRef()
+  - Context API
+  - getDerivedStateFromProps
+  - getSnapshotBeforeUpdate
+  - React.StrictMode
+  - AsyncMode
+- 16.4
+  - Pointer Events
+  - getDerivedStateFromProps 修复bug
+- 16.5    
+- 16.6
+  - lazy
+  - 为了代码分割的 Suspense
+  - React.memo
+  - static contextType
+  - static getDerivedStateFromError()
+- 16.7 
+- 16.8
+  - React Hooks
+  - Concurrent Mode    
+- 16.9
+  - 为了数据获取的 Suspense  
