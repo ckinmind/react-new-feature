@@ -1,29 +1,32 @@
 import React, {Component} from 'react'
-import ReactDOM, {createPortal} from 'react-dom'
 
 
 class CreateRefExample extends Component {
   constructor(props) {
     super(props);
-    this.input = React.createRef();
+    this.nameRef = React.createRef()
+
     this.state = {
-      createRefMessage: '',
+      nameRefMessage: '',
+      ageRefMessage: '',
     }
   }
 
   handleSubmit = (e) => {
     this.setState({
-      createRefMessage: this.input.current.value,
+      nameRefMessage: this.nameRef.current.value,
     })
-    e.preventDefault();
+    e.preventDefault()
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label> Name:<input type="text" ref={this.input} /> </label>
-        <input type="submit" value="Submit" />
-        <span>输入的内容是: {this.state.createRefMessage}</span>
+        <div>
+          <label> Name:<input type="text" ref={this.nameRef} /> </label>
+          <input type="submit" value="Submit" />
+          <span>输入的名字是: {this.state.nameRefMessage}</span>
+        </div>
       </form>
   );
   }
