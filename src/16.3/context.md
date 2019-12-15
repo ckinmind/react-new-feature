@@ -24,8 +24,10 @@
 - Consumer中的渲染子元素是基于render props
 
 #### **contextType**
+- contextType 只能在类组件中使用
 - 可在组件Class中赋值Context对象，使得在组件中可以直接使用对应Context的值；但需要订阅多个Context时此方法不可用，此方法只能订阅一个Context
-
+- contextType 可以简化 context 的使用，不使用 consumer 也可以共享变量
+- 如果你正在使用实验性的 public class fields 语法，你可以使用 static 这个类属性来初始化你的 contextType
 
 #### **Context.displayName**
 - context 对象接受一个名为 displayName 的 property，类型为字符串。React DevTools 使用该字符串来确定 context 要显示的内容
