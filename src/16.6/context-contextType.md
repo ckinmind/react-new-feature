@@ -13,29 +13,44 @@
   - Context 主要应用场景在于很多不同层级的组件需要访问同样一些的数据。请谨慎使用，因为这会使得组件的复用性变差
   - 如果你只是想避免层层传递一些属性，组件组合（component composition）有时候是一个比 context 更好的解决方案
    
-#### **Context.Provider**
-- 每个 Context 对象都会返回一个 Provider React 组件，它允许消费组件订阅 context 的变化
-- Provider 接收一个 value 属性，传递给消费组件。一个 Provider 可以和多个消费组件有对应关系。多个 Provider 也可以嵌套使用，里层的会覆盖外层的数据
-- 当 Provider 的 value 值发生变化时，它内部的所有消费组件都会重新渲染。Provider 及其内部 consumer 组件都不受制于 shouldComponentUpdate 函数，因此当 consumer 组件在其祖先组件退出更新的情况下也能更新
-
-####  **Context.Consumer**
-- Consumer接收当前的context值，传递给Consumer的value值等同于往上组件树离这个context最近的Provider提供的value值
-- Consumer向上找不到Provider的时会默认取创建Context的时候传入的默认值
-- Consumer中的渲染子元素是基于render props
 
 #### **contextType**
+- contextType 只能在类组件中使用
 - 可在组件Class中赋值Context对象，使得在组件中可以直接使用对应Context的值；但需要订阅多个Context时此方法不可用，此方法只能订阅一个Context
 - contextType 可以简化 context 的使用，不使用 consumer 也可以共享变量
 - 如果你正在使用实验性的 public class fields 语法，你可以使用 static 这个类属性来初始化你的 contextType
 
-#### **Context.displayName**
-- context 对象接受一个名为 displayName 的 property，类型为字符串。React DevTools 使用该字符串来确定 context 要显示的内容
-- 示例，下述组件在 DevTools 中将显示为 MyDisplayName
-
 ```js
-const MyContext = React.createContext(/* some value */);
-MyContext.displayName = 'MyDisplayName';
+class MyClass extends React.Component {
+  componentDidMount() {
+    let value = this.context;
+    /* 在组件挂载完成后，使用 MyContext 组件的值来执行一些有副作用的操作 */
+  }
+  componentDidUpdate() {
+    let value = this.context;
+    /* ... */
+  }
+  componentWillUnmount() {
+    let value = this.context;
+    /* ... */
+  }
+  render() {
+    let value = this.context;
+    /* 基于 MyContext 组件的值进行渲染 */
+  }
+}
+MyClass.contextType = MyContext;
 
-<MyContext.Provider> //  在DevTools中显示"MyDisplayName.Provider"
-<MyContext.Consumer> //  在DevTools中"MyDisplayName.Consumer" 
+//-------------- 或者 -----------
+
+class MyClass extends React.Component {
+  static contextType = MyContext;
+  render() {
+    let value = this.context;
+    /* 基于这个值进行渲染工作 */
+  }
+}
+
+/
 ```
+
