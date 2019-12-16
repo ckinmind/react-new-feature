@@ -13,7 +13,6 @@ function StrictModeExample() {
       </React.StrictMode>
       <p>查看控制台可以翻到stringRef的使用警告(开发模式下)，当前严格模式不会对 Header 和 Footer 组件运行严格模式检查。但是，ComponentOne 和 ComponentTwo 以及它们的所有后代元素都将进行检查</p>
       <Footer />
-
     </div>
   )
 }

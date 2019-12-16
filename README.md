@@ -9,7 +9,7 @@
   - getDerivedStateFromProps
   - getSnapshotBeforeUpdate
   - React.StrictMode
-  - AsyncMode
+  - AsyncMode(暂缺)
 - 16.4
   - Pointer Events
   - getDerivedStateFromProps 修复bug

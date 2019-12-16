@@ -1,0 +1,23 @@
+pe-app {
+    text-align: center;
+}
+
+.pe-app-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.pe-app-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.pe-app-title {
+    font-size: 1.5em;
+}
+
+.pe-app-intro {
+    font-size: large;
+}
