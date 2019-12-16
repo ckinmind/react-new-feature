@@ -6,6 +6,7 @@
   - 服务端渲染
   - `<Error boundary>`本身抛出的错误
 - 假设，你需要在事件处理器中捕获一个错误，你可以使用常规的try/catch语句  
+- 如果 class 组件定义了生命周期方法 static getDerivedStateFromError(备注：这个是16.6的Api) 或 componentDidCatch() 中的任何一个（或两者），它就成为了 Error boundaries
   
 ```js
 class ErrorBoundary extends Component {
