@@ -7,3 +7,4 @@ import RPMD from '../src/other/render-props.md'
 storiesOf('其他', module)
   .add('render props', () => <RenderPropsContainer />, {info: {text: RPMD, inline: true, source: false, propTables: null}})
 
+// test
